@@ -1,66 +1,68 @@
 package s20404;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 public class frame {
-    public static void main(String[] args) {
-        JFrame fr = new JFrame("응프개발0403");
+
+	public static void main(String[] args) {
+        JFrame frame = new JFrame("응프개발0403");
         
-        // 이름 레이블과 텍스트필드
         JLabel nameLabel = new JLabel("이름:");
         nameLabel.setBounds(20, 30, 60, 30);
-        fr.add(nameLabel);
+        frame.add(nameLabel);
         
         JTextField nameField = new JTextField();
         nameField.setBounds(80, 30, 180, 30);
-        fr.add(nameField);
+        frame.add(nameField);
         
-        // 나이 레이블과 텍스트필드
         JLabel ageLabel = new JLabel("나이:");
         ageLabel.setBounds(20, 70, 60, 30);
-        fr.add(ageLabel);
+        frame.add(ageLabel);
         
         JTextField ageField = new JTextField();
         ageField.setBounds(80, 70, 180, 30);
-        fr.add(ageField);
+        frame.add(ageField);
         
-        // 주소 레이블과 텍스트필드
         JLabel addressLabel = new JLabel("주소:");
         addressLabel.setBounds(20, 110, 60, 30);
-        fr.add(addressLabel);
+        frame.add(addressLabel);
         
         JTextField addressField = new JTextField();
         addressField.setBounds(80, 110, 180, 30);
-        fr.add(addressField);
+        frame.add(addressField);
         
-        // 결과 출력 레이블
-        JLabel resultLabel = new JLabel("");
-        resultLabel.setBounds(20, 150, 260, 30);
-        resultLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
-        fr.add(resultLabel);
+        JButton inputBtn = new JButton("입력완료");
+        inputBtn.setBounds(20, 160, 90, 30);
+        frame.add(inputBtn);
         
-        // 입력완료 버튼
-        JButton submitBtn = new JButton("입력완료");
-        submitBtn.setBounds(15, 200, 90, 30);
-        fr.add(submitBtn);
+        JButton clearBtn = new JButton("삭제");
+        clearBtn.setBounds(120, 160, 80, 30);
+        frame.add(clearBtn);
         
-        submitBtn.addActionListener(new ActionListener() {
+        JButton exitBtn = new JButton("종료");
+        exitBtn.setBounds(210, 160, 80, 30);
+        frame.add(exitBtn);
+        
+        JLabel output = new JLabel();
+        output.setBounds(20, 210, 260, 30);
+        frame.add(output);
+        
+        inputBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String name = nameField.getText();
                 String age = ageField.getText();
                 String address = addressField.getText();
                 
-                resultLabel.setText(name + " (" + age + "세, " + address + ")");
+                output.setText(name + " (" + age + "세, " + address + ")");
             }
         });
-        
-        // 삭제 버튼
-        JButton clearBtn = new JButton("삭제");
-        clearBtn.setBounds(110, 200, 90, 30);
-        fr.add(clearBtn);
         
         clearBtn.addActionListener(new ActionListener() {
             @Override
@@ -68,14 +70,9 @@ public class frame {
                 nameField.setText("");
                 ageField.setText("");
                 addressField.setText("");
-                resultLabel.setText("");
+                output.setText("");
             }
         });
-        
-        // 종료 버튼
-        JButton exitBtn = new JButton("종료");
-        exitBtn.setBounds(205, 200, 90, 30);
-        fr.add(exitBtn);
         
         exitBtn.addActionListener(new ActionListener() {
             @Override
@@ -84,10 +81,9 @@ public class frame {
             }
         });
         
-        // 프레임 설정
-        fr.setSize(300, 300);
-        fr.setLayout(null);
-        fr.setVisible(true);
-        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 300);
+        frame.setLayout(null);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
