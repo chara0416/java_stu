@@ -1,0 +1,17 @@
+CardGame 클래스(객체) 설계
+
+ 카드 맟추기 게임을 하기 위해서  card 하나가 가고 있어야할 기능 설계
+ 
+ 카드 번호 : cardNum
+ 카드 크기 : cardWidth, cardHeight
+ 카드 상태 : cardStatus (bool)
+ 이미지 번호 : imgNum
+ 
+ 기능 :
+  - 이벤트 처리
+  - 카드번호 세팅
+  - 라벨처리
+  
+필요한 객체
+라벨: cardLabel (카드모양)
+이미지 : img1, img2, img3, img4
